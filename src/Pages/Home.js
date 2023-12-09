@@ -1,9 +1,14 @@
+import React from 'react';
+import signUp from './signUp';
 import todoperson from '../Pictures/todoperson.png';
 import darkbluecirc from '../Pictures/darkbluecirc.png';
 import lightbluecirc from '../Pictures/lightbluecirc.png';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 export default function () {
+    const navigate = useNavigate();
     return (
         <div>
             <img className="relative z-40 h-24" src={darkbluecirc} />
@@ -20,7 +25,7 @@ export default function () {
                         adipiscing elit. Nunc vulputate libero<br></br>
                         let velit interdum, ac aliquet odio mattis.
                     </p>
-                    <button className="bottom-0 w-80 text-white rounded-lg font-semibold hover:bg-sky-700 text-xl bg-cyan-400 p-5">Get Started</button>
+                    <Link className=" w-2/3 text-white rounded-lg px-28 font-semibold hover:bg-sky-700 text-xl bg-cyan-400 p-5" to="/signUp">Get started</Link>
                 </div>
             </div>
         </div>
