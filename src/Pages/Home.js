@@ -21,7 +21,7 @@ export default function () {
                     <h1 className="text-2xl font-bold p-5">
                         Get things done with TODO
                     </h1>
-                    <p className="text-xl p-8 font-family"> Lorem ipsum dolor sit amet, consectetur<br></br>
+                    <p className="text-xl p-8 font-family mb-11"> Lorem ipsum dolor sit amet, consectetur<br></br>
                         adipiscing elit. Nunc vulputate libero<br></br>
                         let velit interdum, ac aliquet odio mattis.
                     </p>
