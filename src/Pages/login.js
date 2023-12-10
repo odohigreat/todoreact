@@ -1,6 +1,7 @@
 import darkbluecirc from '../Pictures/darkbluecirc.png';
 import lightbluecirc from '../Pictures/lightbluecirc.png';
-
+import tasksdone from '../Pictures/tasksdone.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function () {
@@ -14,18 +15,17 @@ export default function () {
                 <h1 className="text-2xl font-bold p-5">Welcome Back!
                 </h1>
             </div>
-            <div>
-                <img></img>
+            <div className=" m-12 scale-125">
+                <img src={tasksdone} />
             </div>
-            <div>
-                <input></input>
-                <input></input>
+            <div className="px-10 mb-52">
+                <input type='email' placeholder='Enter your email address' className="border-2 rounded-full p-3 w-full"></input><br />
+                <input type='password' placeholder='Enter your password' className="border-2 rounded-full p-3 w-full my-8"></input><br />
             </div>
-            <div>
-                <button className="bottom-0 w-80 text-white rounded-lg font-semibold hover:bg-sky-700 text-xl bg-cyan-400 p-5">
-                    Login</button>
+            <div className='px-10 mb-7'>
+                <Link className="text-white px-32 rounded-lg font-semibold hover:bg-sky-700 text-xl bg-cyan-400 p-5" to="/dashboard">Login</Link>
             </div>
-            <p>Don't have an account? <a>sign up</a></p>
+            <p>Don't have an account? <Link className="text-sky-500 font-bold" to="/signUp">sign up</Link></p>
         </div>
     );
 }
