@@ -15,7 +15,7 @@ export default function () {
                 <h1 className="text-2xl font-bold p-5">Welcome Back!
                 </h1>
             </div>
-            <div className=" m-12 scale-125">
+            <div className=" m-12">
                 <img src={tasksdone} />
             </div>
             <div className="px-10 mb-52">
