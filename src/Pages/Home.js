@@ -22,7 +22,7 @@ export default function () {
                         Get things done with TODO
                     </h1>
                     <p className="text-lg mb-6 p-8 font-family"> Lorem ipsum dolor sit amet, consectetur<br></br>
-                        adipiscing elit. Nunc vulputate libero<br></br>
+                        adipiscing elit. Nunc vulputate liberoto<br></br>
                         let velit interdum, ac aliquet odio mattis.
                     </p>
                     <Link className=" w-2/3 text-white rounded-lg px-28 font-semibold hover:bg-sky-700 text-xl bg-cyan-400 p-5" to="/signUp">Get started</Link>
