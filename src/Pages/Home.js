@@ -17,7 +17,7 @@ export default function () {
                 <div className="mt-20">
                     <img src={todoperson} />
                 </div>
-                <div>
+                <div className='text-center'>
                     <h1 className="text-2xl font-bold p-5">
                         Get things done with TODO
                     </h1>
