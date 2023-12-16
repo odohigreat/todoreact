@@ -13,7 +13,7 @@ export default function () {
             </div>
             <div className="pt-44 -translate-y-24 bg-gradient-to-r from-40% from-cyan-500 to-blue-500 text-white">
                 <div className="">
-                    <img className="m-auto w-24 h-24 rounded-full" src={mypic} />
+                    <img className="m-auto w-24 h-24 outline outline-offset-4 rounded-full" src={mypic} />
                 </div>
                 <h1 className="text-2xl text-center font-bold p-5">Welcome Odohi Great</h1>
             </div>
@@ -47,6 +47,31 @@ export default function () {
                         <br />
                         <input className="h-5 w-5 my-2 mr-4" type="checkbox" />
                         <label className="text-lg">Learn Dutch language</label>
+                        <br />
+                    </div>
+                </div>
+                <div className="p-5 my-5 pt-4 shadow-2xl rounded-lg drop-shadow-2xl">
+                    <div className="clear-both mb-4">
+                        <span className="font-bold">Weekly tasks</span>
+                        <span className="inline-block float-right">
+                            <img className="w-8 h-8" src={plusicon} />
+                        </span>
+                    </div>
+                    <div className="">
+                        <input className="h-5 w-5 my-2 mr-4" type="checkbox" />
+                        <label className="text-lg">Do laundry</label>
+                        <br />
+                        <input className="h-5 w-5 my-2 mr-4" type="checkbox" />
+                        <label className="text-lg">Clean your tech</label>
+                        <br />
+                        <input className="h-5 w-5 my-2 mr-4" type="checkbox" />
+                        <label className="text-lg">Lorem Ipsum</label>
+                        <br />
+                        <input className="h-5 w-5 my-2 mr-4" type="checkbox" />
+                        <label className="text-lg">Dolor sit amet</label>
+                        <br />
+                        <input className="h-5 w-5 my-2 mr-4" type="checkbox" />
+                        <label className="text-lg">per si consectetur</label>
                         <br />
                     </div>
                 </div>
