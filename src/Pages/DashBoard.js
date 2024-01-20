@@ -3,8 +3,18 @@ import lightbluecirc from "../Pictures/lightbluecirc.png";
 import plusicon from "../Pictures/plus_icon.png";
 import { Link, useNavigate } from "react-router-dom";
 import mypic from "../Pictures/miself.jpg";
+import { useEffect, useState } from 'react';
+import Clock from 'react-clock';
+import clockIcon from "../Pictures/clock.png";
+import addIcon from "../Pictures/add.png";
+import homeIcon from "../Pictures/home.png";
+import profileIcon from "../Pictures/profile.png";
+import searchIcon from "../Pictures/search.png";
+
+
 
 export default function () {
+
     return (
         <div>
             <div>
@@ -21,7 +31,7 @@ export default function () {
                 <h2 className="text-xl italic -translate-y-24 pl-8 font-bold">
                     Good evening
                 </h2>
-                <time></time>
+                <Clock className="" />
             </div>
             <div className="p-5">
                 <h1 className="text-2xl font-bold">Task lists</h1>
@@ -73,6 +83,16 @@ export default function () {
                         <input className="h-5 w-5 my-2 mr-4" type="checkbox" />
                         <label className="text-lg">per si consectetur</label>
                         <br />
+                    </div>
+                </div>
+            </div>
+            <div className="relative">
+                <div className="pt-3 fixed bottom-0 left-0 right-0 h-20 w-full bg-cyan-400 rounded-t-2xl opacity-75">
+                    <div className="flex justify-around">
+                        <img className="h-10 w-10" src={homeIcon} />
+                        <img className="h-10 w-10" src={searchIcon} />
+                        <img className="h-10 w-10" src={clockIcon} />
+                        <img className="h-10 w-10" src={profileIcon} />
                     </div>
                 </div>
             </div>
