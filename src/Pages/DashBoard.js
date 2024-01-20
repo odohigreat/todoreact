@@ -87,12 +87,12 @@ export default function () {
                 </div>
             </div>
             <div className="relative">
-                <div className="pt-3 fixed bottom-0 left-0 right-0 h-20 w-full bg-cyan-400 rounded-t-2xl opacity-75">
+                <div className="pt-3 fixed bottom-0 left-0 right-0 h-16 w-full bg-cyan-400">
                     <div className="flex justify-around">
-                        <img className="h-10 w-10" src={homeIcon} />
-                        <img className="h-10 w-10" src={searchIcon} />
-                        <img className="h-10 w-10" src={clockIcon} />
-                        <img className="h-10 w-10" src={profileIcon} />
+                        <img className="h-8 w-8" src={homeIcon} />
+                        <img className="h-8 w-8" src={searchIcon} />
+                        <img className="h-8 w-8" src={clockIcon} />
+                        <img className="h-8 w-8" src={profileIcon} />
                     </div>
                 </div>
             </div>
