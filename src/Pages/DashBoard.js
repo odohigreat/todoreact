@@ -39,7 +39,7 @@ export default function () {
                     <div className="clear-both mb-4">
                         <span className="font-bold">Daily tasks</span>
                         <span className="inline-block float-right">
-                            <img className="w-8 h-8" src={plusicon} />
+                            <Link className="" to="/new"><img className="w-8 h-8" src={plusicon} /></Link>
                         </span>
                     </div>
                     <div className="">
@@ -64,7 +64,7 @@ export default function () {
                     <div className="clear-both mb-4">
                         <span className="font-bold">Weekly tasks</span>
                         <span className="inline-block float-right">
-                            <img className="w-8 h-8" src={plusicon} />
+                            <Link className="" to="/new"><img className="w-8 h-8" src={plusicon} /></Link>
                         </span>
                     </div>
                     <div className="">
@@ -87,7 +87,7 @@ export default function () {
                 </div>
             </div>
             <div className="relative">
-                <div className="pt-3 fixed bottom-0 left-0 right-0 h-16 w-full bg-cyan-400">
+                <div className="pt-3 fixed bottom-0 left-0 right-0 h-16 w-full bg-blue-400">
                     <div className="flex justify-around">
                         <img className="h-8 w-8" src={homeIcon} />
                         <img className="h-8 w-8" src={searchIcon} />
