@@ -6,6 +6,7 @@ import addIcon from "../Pictures/add.png";
 import homeIcon from "../Pictures/home.png";
 import profileIcon from "../Pictures/profile.png";
 import searchIcon from "../Pictures/search.png";
+import addtodo from "../Pictures/addtodo.png";
 
 
 export default function () {
@@ -31,7 +32,7 @@ export default function () {
                 <hr />
                 <p className="my-7 text-center text-lg font-family: 'Poppins', sans-serif; font-medium">Type in you new task, then <br />Click the Add button<br /> to add a new task to your todo list</p>
                 <hr />
-                <input className="border-gray-400 border-2 rounded-xl drop-shadow-lg mt-20 mb-8 h-28 w-full" type="text"></input>
+                <input className="border-gray-400 border-2 rounded-xl text-gray-50 bg-gray-600 drop-shadow-lg mt-20 mb-8 h-28 w-full" type="text"></input>
                 <Link className="text-white px-12 rounded-lg float-right shadow-lg font-semibold hover:bg-cyan-400 text-xl bg-blue-500 p-5" to="">Add</Link>
             </div>
         </div>
