@@ -1,218 +1,237 @@
-import darkbluecirc from "../Pictures/darkbluecirc.png";
-import lightbluecirc from "../Pictures/lightbluecirc.png";
-import plusicon from "../Pictures/plus_icon.png";
-import { Link, useNavigate } from "react-router-dom";
-import mypic from "../Pictures/miself.jpg";
-import { useEffect, useState } from 'react';
-import Clock from 'react-clock';
-import clockIcon from "../Pictures/clock.png";
-import addIcon from "../Pictures/add.png";
-import homeIcon from "../Pictures/home.png";
-import profileIcon from "../Pictures/profile.png";
-import searchIcon from "../Pictures/search.png";
+'use client'
 
+import { useState } from 'react'
+import { Dialog, DialogBackdrop, DialogPanel, TransitionChild } from '@headlessui/react'
+import {
+	Bars3Icon,
+	CalendarIcon,
+	ChartPieIcon,
+	CalendarDaysIcon,
+	HomeIcon,
+	XMarkIcon,
+	ClipboardDocumentCheckIcon,
+	CogIcon,
+} from '@heroicons/react/24/outline'
 
+const navigation = [
+	{ name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
+	{ name: 'Tasks', href: '#', icon: ClipboardDocumentCheckIcon, current: false },
+	{ name: 'Events', href: '#', icon: CalendarDaysIcon, current: false },
+	{ name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
+	{ name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
+	{ name: 'Settings', href: '#', icon: CogIcon, current: false },
+]
+const teams = [
+	{ id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
+	{ id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
+	{ id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
+]
 
-export default function () {
+function classNames(...classes) {
+	return classes.filter(Boolean).join(' ')
+}
+
+export default function Dashboard() {
+	const [sidebarOpen, setSidebarOpen] = useState(false)
 
 	return (
-		<div>
+		<>
+			{/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full bg-white">
+        <body class="h-full">
+        ```
+      */}
 			<div>
-				<img className="relative z-40 h-24" src={darkbluecirc} />
-				<img className="absolute top-0 left-0 z-10" src={lightbluecirc} />
-			</div>
-			<div className="pt-44 -translate-y-24 bg-gradient-to-r from-40% from-cyan-500 to-blue-500 text-white">
-				<div className="">
-					<img className="m-auto w-24 h-24 outline outline-offset-4 rounded-full" src={mypic} />
-				</div>
-				<h1 className="text-2xl text-center font-bold p-5">Welcome Odohi Great</h1>
-			</div>
-			<div className="pt-5">
-				<h2 className="text-xl italic -translate-y-24 pl-8 font-bold">
-					Good evening
-				</h2>
-				<Clock className="" />
+				<Dialog open={sidebarOpen} onClose={setSidebarOpen} className="relative z-50 lg:hidden">
+					<DialogBackdrop
+						transition
+						className="fixed inset-0 bg-gray-900/80 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
+					/>
 
-			</div>
-			<div className="p-5">
-				<h1 className="text-2xl font-bold">Task lists</h1>
-				<div className="p-5 my-5 pt-4 shadow-2xl rounded-lg drop-shadow-2xl">
-					<div className="clear-both mb-4">
-						<span className="font-bold">Daily tasks</span>
-						<span className="inline-block float-right">
-							<Link className="" to="/new"><img className="w-8 h-8" src={plusicon} /></Link>
-						</span>
-					</div>
-					<div className="">
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Learn Golang Programming</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Learn responsive design</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Finish Company Tasks</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Learn React JS</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Learn Dutch language</label>
-						<br />
-					</div>
-				</div>
-				<div className="p-5 my-5 pt-4 shadow-2xl rounded-lg drop-shadow-2xl">
-					<div className="clear-both mb-4">
-						<span className="font-bold">Weekly tasks</span>
-						<span className="inline-block float-right">
-							<Link className="" to="/new"><img className="w-8 h-8" src={plusicon} /></Link>
-						</span>
-					</div>
-					<div className="">
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Do laundry</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Clean your tech</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Lorem Ipsum</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">Dolor sit amet</label>
-						<br />
-						<input className="h-5 w-5 my-2 mr-4" type="checkbox" />
-						<label className="text-lg">per si consectetur</label>
-						<br />
-					</div>
-				</div>
-			</div>
-			<div className="">
-				<div className="flex fixed bottom-0 cursor-pointer transition-all bg-cyan-400 text-white w-full py-3 rounded-lg border-cyan-500 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
-					{/* <div className="flex">
-						<img className="h-8 w-8" src={homeIcon} />
-						<img className="h-8 w-8" src={searchIcon} />
-						<img className="h-8 w-8" src={clockIcon} />
-						<img className="h-8 w-8" src={profileIcon} />
-						</div> */}
-					<div
-						class="flex transition-all duration-[450ms] ease-in-out w-full"
-					>
-						<article
-							class="grid grid-cols-5 w-full ease-in-out duration-500 rounded-2xl bg-transparent"
+					<div className="fixed inset-0 flex">
+						<DialogPanel
+							transition
+							className="relative mr-16 flex w-full max-w-xs flex-1 transform transition duration-300 ease-in-out data-[closed]:-translate-x-full"
 						>
-							<label
-								for="dashboard"
-								class="has-[:checked]:shadow-lg relative w-full h-16 ease-in-out duration-300 border-solid border-black/10 has-[:checked]:border group flex flex-row gap-3 items-center justify-center text-black rounded-xl"
-							>
-								<input
-									class="hidden peer/expand"
-									type="radio"
-									name="path"
-									id="dashboard"
-								/>
-								<svg
-									class="peer-hover/expand:scale-125 peer-hover/expand:text-blue-400 peer-hover/expand:fill-blue-400 peer-checked/expand:text-blue-400 peer-checked/expand:fill-blue-400 text-2xl peer-checked/expand:scale-125 ease-in-out duration-300"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z"
-									></path>
-								</svg>
-							</label>
-							<label
-								for="profile"
-								class="has-[:checked]:shadow-lg relative w-full h-16 p-4 ease-in-out duration-300 border-solid border-black/10 has-[:checked]:border group flex flex-row gap-3 items-center justify-center text-black rounded-xl"
-							>
-								<input class="hidden peer/expand" type="radio" name="path" id="profile" />
-								<svg
-									class="peer-hover/expand:scale-125 peer-hover/expand:text-blue-400 peer-hover/expand:fill-blue-400 peer-checked/expand:text-cyan-400 peer-checked/expand:fill-blue-400 text-2xl peer-checked/expand:scale-125 ease-in-out duration-300"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"
-									></path>
-								</svg>
-							</label>
-							<label
-								for="messages"
-								class="has-[:checked]:shadow-lg relative w-full h-16 p-4 ease-in-out duration-300 border-solid border-black/10 has-[:checked]:border group flex flex-row gap-3 items-center justify-center text-black rounded-xl"
-							>
-								<input
-									class="hidden peer/expand"
-									type="radio"
-									name="path"
-									id="messages"
-								/>
-								<svg
-									class="peer-hover/expand:scale-125 peer-hover/expand:text-blue-400 peer-hover/expand:fill-blue-400 peer-checked/expand:text-blue-400 peer-checked/expand:fill-blue-400 text-2xl peer-checked/expand:scale-125 ease-in-out duration-300"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M5 18v3.766l1.515-.909L11.277 18H16c1.103 0 2-.897 2-2V8c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h1zM4 8h12v8h-5.277L7 18.234V16H4V8z"
-									></path>
-									<path
-										d="M20 2H8c-1.103 0-2 .897-2 2h12c1.103 0 2 .897 2 2v8c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"
-									></path>
-								</svg>
-							</label>
-							<label
-								for="help"
-								class="has-[:checked]:shadow-lg relative w-full h-16 p-4 ease-in-out duration-300 border-solid border-black/10 has-[:checked]:border group flex flex-row gap-3 items-center justify-center text-black rounded-xl"
-							>
-								<input class="hidden peer/expand" type="radio" name="path" id="help" />
-								<svg
-									class="peer-hover/expand:scale-125 peer-hover/expand:text-blue-400 peer-hover/expand:fill-blue-400 peer-checked/expand:text-blue-400 peer-checked/expand:fill-blue-400 text-2xl peer-checked/expand:scale-125 ease-in-out duration-300"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z"
-									></path>
-									<path d="M11 7h2v7h-2zm0 8h2v2h-2z"></path>
-								</svg>
-							</label>
-							<label
-								for="settings"
-								class="has-[:checked]:shadow-lg relative w-full h-16 p-4 ease-in-out duration-300 border-solid border-black/10 has-[:checked]:border group flex flex-row gap-3 items-center justify-center text-black rounded-xl"
-							>
-								<input
-									class="hidden peer/expand"
-									type="radio"
-									name="path"
-									id="settings"
-								/>
-								<svg
-									class="peer-hover/expand:scale-125 peer-hover/expand:text-blue-400 peer-hover/expand:fill-blue-400 peer-checked/expand:text-blue-400 peer-checked/expand:fill-blue-400 text-2xl peer-checked/expand:scale-125 ease-in-out duration-300"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path
-										d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.084 0 2 .916 2 2s-.916 2-2 2-2-.916-2-2 .916-2 2-2z"
-									></path>
-									<path
-										d="m2.845 16.136 1 1.73c.531.917 1.809 1.261 2.73.73l.529-.306A8.1 8.1 0 0 0 9 19.402V20c0 1.103.897 2 2 2h2c1.103 0 2-.897 2-2v-.598a8.132 8.132 0 0 0 1.896-1.111l.529.306c.923.53 2.198.188 2.731-.731l.999-1.729a2.001 2.001 0 0 0-.731-2.732l-.505-.292a7.718 7.718 0 0 0 0-2.224l.505-.292a2.002 2.002 0 0 0 .731-2.732l-.999-1.729c-.531-.92-1.808-1.265-2.731-.732l-.529.306A8.1 8.1 0 0 0 15 4.598V4c0-1.103-.897-2-2-2h-2c-1.103 0-2 .897-2 2v.598a8.132 8.132 0 0 0-1.896 1.111l-.529-.306c-.924-.531-2.2-.187-2.731.732l-.999 1.729a2.001 2.001 0 0 0 .731 2.732l.505.292a7.683 7.683 0 0 0 0 2.223l-.505.292a2.003 2.003 0 0 0-.731 2.733zm3.326-2.758A5.703 5.703 0 0 1 6 12c0-.462.058-.926.17-1.378a.999.999 0 0 0-.47-1.108l-1.123-.65.998-1.729 1.145.662a.997.997 0 0 0 1.188-.142 6.071 6.071 0 0 1 2.384-1.399A1 1 0 0 0 11 5.3V4h2v1.3a1 1 0 0 0 .708.956 6.083 6.083 0 0 1 2.384 1.399.999.999 0 0 0 1.188.142l1.144-.661 1 1.729-1.124.649a1 1 0 0 0-.47 1.108c.112.452.17.916.17 1.378 0 .461-.058.925-.171 1.378a1 1 0 0 0 .471 1.108l1.123.649-.998 1.729-1.145-.661a.996.996 0 0 0-1.188.142 6.071 6.071 0 0 1-2.384 1.399A1 1 0 0 0 13 18.7l.002 1.3H11v-1.3a1 1 0 0 0-.708-.956 6.083 6.083 0 0 1-2.384-1.399.992.992 0 0 0-1.188-.141l-1.144.662-1-1.729 1.124-.651a1 1 0 0 0 .471-1.108z"
-									></path>
-								</svg>
-							</label>
-						</article>
+							<TransitionChild>
+								<div className="absolute left-full top-0 flex w-16 justify-center pt-5 duration-300 ease-in-out data-[closed]:opacity-0">
+									<button type="button" onClick={() => setSidebarOpen(false)} className="-m-2.5 p-2.5">
+										<span className="sr-only">Close sidebar</span>
+										<XMarkIcon aria-hidden="true" className="h-6 w-6 text-white" />
+									</button>
+								</div>
+							</TransitionChild>
+							{/* Sidebar component, swap this element with another sidebar if you like */}
+							<div className="flex grow flex-col gap-y-5 overflow-y-auto bg-cyan-500 px-6 pb-2">
+								<div className="flex h-16 shrink-0 items-center">
+									<img
+										alt="Your Company"
+										src="https://tailwindui.com/img/logos/mark.svg?color=white"
+										className="h-8 w-auto"
+									/>
+								</div>
+								<nav className="flex flex-1 flex-col">
+									<ul role="list" className="flex flex-1 flex-col gap-y-7">
+										<li>
+											<ul role="list" className="-mx-2 space-y-1">
+												{navigation.map((item) => (
+													<li key={item.name}>
+														<a
+															href={item.href}
+															className={classNames(
+																item.current
+																	? 'bg-cyan-600 text-white'
+																	: 'text-slate-200 hover:bg-cyan-600 hover:text-white',
+																'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
+															)}
+														>
+															<item.icon
+																aria-hidden="true"
+																className={classNames(
+																	item.current ? 'text-white' : 'text-slate-200 group-hover:text-white',
+																	'h-6 w-6 shrink-0',
+																)}
+															/>
+															{item.name}
+														</a>
+													</li>
+												))}
+											</ul>
+										</li>
+										<li>
+											<div className="text-xs font-semibold leading-6 text-slate-200">Your teams</div>
+											<ul role="list" className="-mx-2 mt-2 space-y-1">
+												{teams.map((team) => (
+													<li key={team.name}>
+														<a
+															href={team.href}
+															className={classNames(
+																team.current
+																	? 'bg-cyan-600 text-white'
+																	: 'text-slate-200 hover:bg-cyan-600 hover:text-white',
+																'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
+															)}
+														>
+															<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-[0.625rem] font-medium text-white">
+																{team.initial}
+															</span>
+															<span className="truncate">{team.name}</span>
+														</a>
+													</li>
+												))}
+											</ul>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</DialogPanel>
 					</div>
+				</Dialog>
 
+				{/* Static sidebar for desktop */}
+				<div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
+					{/* Sidebar component, swap this element with another sidebar if you like */}
+					<div className="flex grow flex-col gap-y-5 overflow-y-auto bg-cyan-500 px-6">
+						<div className="flex h-16 shrink-0 items-center">
+							<img
+								alt="Your Company"
+								src="https://tailwindui.com/img/logos/mark.svg?color=white"
+								className="h-8 w-auto"
+							/>
+						</div>
+						<nav className="flex flex-1 flex-col">
+							<ul role="list" className="flex flex-1 flex-col gap-y-7">
+								<li>
+									<ul role="list" className="-mx-2 space-y-1">
+										{navigation.map((item) => (
+											<li key={item.name}>
+												<a
+													href={item.href}
+													className={classNames(
+														item.current
+															? 'bg-cyan-600 text-white'
+															: 'text-slate-200 hover:bg-cyan-600 hover:text-white',
+														'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
+													)}
+												>
+													<item.icon
+														aria-hidden="true"
+														className={classNames(
+															item.current ? 'text-white' : 'text-slate-200 group-hover:text-white',
+															'h-6 w-6 shrink-0',
+														)}
+													/>
+													{item.name}
+												</a>
+											</li>
+										))}
+									</ul>
+								</li>
+								<li>
+									<div className="text-xs font-semibold leading-6 text-slate-200">Your teams</div>
+									<ul role="list" className="-mx-2 mt-2 space-y-1">
+										{teams.map((team) => (
+											<li key={team.name}>
+												<a
+													href={team.href}
+													className={classNames(
+														team.current
+															? 'bg-cyan-500 text-white'
+															: 'text-slate-200 hover:bg-cyan-600 hover:text-white',
+														'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6',
+													)}
+												>
+													<span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-cyan-400 text-[0.625rem] font-medium text-white">
+														{team.initial}
+													</span>
+													<span className="truncate">{team.name}</span>
+												</a>
+											</li>
+										))}
+									</ul>
+								</li>
+								<li className="-mx-6 mt-auto">
+									<a
+										href="#"
+										className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-cyan-600"
+									>
+										<img
+											alt=""
+											src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+											className="h-8 w-8 rounded-full"
+										/>
+										<span className="sr-only">Your profile</span>
+										<span aria-hidden="true">Odohi Great</span>
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
 				</div>
+
+				<div className="sticky top-0 z-40 flex items-center gap-x-6 bg-cyan-500 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+					<button type="button" onClick={() => setSidebarOpen(true)} className="-m-2.5 p-2.5 text-white lg:hidden">
+						<span className="sr-only">Open sidebar</span>
+						<Bars3Icon aria-hidden="true" className="h-6 w-6" />
+					</button>
+					<div className="flex-1 text-lg font-semibold leading-6 text-white">Dashboard</div>
+					<a href="#">
+						<span className="sr-only">Your profile</span>
+						<img
+							alt=""
+							src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+							className="h-8 w-8 rounded-full"
+						/>
+					</a>
+				</div>
+
+				<main className="py-10 lg:pl-72">
+					<div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
+				</main>
 			</div>
-		</div>
-	);
+		</>
+	)
 }
