@@ -228,8 +228,32 @@ export default function Dashboard() {
 					</a>
 				</div>
 
-				<main className="py-10 lg:pl-72">
-					<div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
+				<main className="py-5 px-5 lg:pl-80 lg:pr-10">
+					<div className="flex flex-col space-y-2 mb-10">
+						<h3 className='font-semibold text-xl'>Recent Activity</h3>
+						<div className='flex items-center justify-between space-x-5'>
+							<div className='rounded-md bg-cyan-100 basis-1/3 h-16 shadow-md'>
+
+							</div>
+							<div className='rounded-md bg-cyan-100 basis-1/3 h-16 shadow-md'>
+
+							</div>
+							<div className='rounded-md bg-cyan-100 basis-1/3 h-16 shadow-md'>
+
+							</div>
+						</div>
+					</div>
+					<div className="flex flex-col space-y-2">
+						<h3 className='font-semibold text-2xl'>To Do</h3>
+						<div className='flex items-center justify-between space-x-5'>
+							<div className='rounded-md basis-1/2 h-28 shadow-md'>
+								
+							</div>
+							<div className='rounded-md basis-1/2 h-28 shadow-md'>
+
+							</div>
+						</div>
+					</div>
 				</main>
 			</div>
 		</>
